@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object,evaluate_models
-from model_config import models, params
+from .model_config import models, params
 
 @dataclass
 class ModelTrainerConfig:
@@ -18,7 +18,7 @@ class ModelTrainer:
 
     def initiate_model_trainer(self,train_array,test_array):
         try:
-            logging.info("Split training and test input data")
+            logging.info("Starting model training and evaluation.")
             X_train,y_train,X_test,y_test=(
                 train_array[:,:-1],
                 train_array[:,-1],
