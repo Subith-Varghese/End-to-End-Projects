@@ -17,7 +17,10 @@ class PredictPipeline:
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             print("After Loading")
+            print(f"Shape of input features before preprocessing: {features.shape}")
             data_scaled=preprocessor.transform(features)
+            print(f"Shape of input features after preprocessing: {data_scaled.shape}")
+
             preds=model.predict(data_scaled)
             return preds
         
